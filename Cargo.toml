@@ -1,0 +1,12 @@
+[package]
+name = "mybox"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.52.3", features = ["full"] }
+serde = { version = "1.0.228", features = ["derive"]}
+serde_json = { version = "1.0.150"}
+thiserror = "1"
+nix = { version = "0.29", features = ["process", "hostname", "mount", "sched", "signal", "fs", "term"] }
+libc = "0.2"
