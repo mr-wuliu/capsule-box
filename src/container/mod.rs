@@ -91,7 +91,7 @@ impl ContainerManager {
             }
 
             println!(
-                "[Deamon] 容器 {} 已退出，退出码 {}",
+                "[Daemon] 容器 {} 已退出，退出码 {}",
                 &info.id[..8.min(info.id.len())],
                 exit_code
             );

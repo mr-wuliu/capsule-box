@@ -14,13 +14,13 @@ use std::fs::File;
 use std::io::{Read, Write};
 use std::os::fd::{FromRawFd, IntoRawFd, RawFd};
 
-const SOCKET_PATH: &str = "/run/mybox/ipc.sock";
+const SOCKET_PATH: &str = "/run/cb/ipc.sock";
 
 // 准备通信
 pub async fn run_daemon() -> Result<(), AppError> {
     // Daemon 启动时确保所有运行时目录就绪（重启后自动重建）
-    std::fs::create_dir_all("/run/mybox/containers")?;
-    std::fs::create_dir_all("/sys/fs/cgroup/mybox")?;
+    std::fs::create_dir_all("/run/cb/containers")?;
+    std::fs::create_dir_all("/sys/fs/cgroup/cb")?;
 
     // 移除旧的socket文件
     let _ = std::fs::remove_file(SOCKET_PATH);
@@ -55,7 +55,7 @@ pub async fn run_daemon() -> Result<(), AppError> {
         tokio::signal::ctrl_c()
             .await
             .expect("register Ctrl + C failed");
-        println!("\n[Dameon] received Ctrl + C, exiting");
+        println!("\n[Daemon] received Ctrl + C, exiting");
         let _ = shutdown_tx.send(()).await;
     });
 
@@ -74,7 +74,7 @@ pub async fn run_daemon() -> Result<(), AppError> {
                 }
             }
             _ = shutdown_rx.recv() => {
-                println!("[Deamon] cleaning...");
+                println!("[Daemon] cleaning...");
                 let _ = std::fs::remove_file(SOCKET_PATH);
                 break;
             }
@@ -179,7 +179,7 @@ async fn create_container(
     interactive: bool,
 ) -> Result<(String, Option<RawFd>), AppError> {
     let id = generate_id();
-    let hostname = format!("mybox-{}", &id[..8]);
+    let hostname = format!("cb-{}", &id[..8]);
 
     let ip = manager.allocate_ip().ok_or(AppError::IpExhausted)?;
 

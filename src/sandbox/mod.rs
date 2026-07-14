@@ -16,7 +16,7 @@ use std::path::Path;
 
 use crate::sandbox::cgroup::{parse_memory_limit};
 
-// const ROOTFS: &str = "/tmp/mybox/rootfs";
+// const ROOTFS: &str = "/tmp/cb/rootfs";
 
 fn setup_rootfs(merged: &Path) {
     mount(

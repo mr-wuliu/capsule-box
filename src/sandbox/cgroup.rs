@@ -2,7 +2,7 @@ use std::path::{Path, PathBuf};
 use std::fs;
 use crate::error::AppError;
 
-const CGROUP_BASE: &str = "/sys/fs/cgroup/mybox";
+const CGROUP_BASE: &str = "/sys/fs/cgroup/cb";
 
 pub struct Cgroup {
     pub path: PathBuf

@@ -7,7 +7,7 @@ use std::io::{Read, Write};
 use std::os::fd::AsFd;
 use tokio::net::UnixStream;
 
-const SOCKET_PATH: &str = "/run/mybox/ipc.sock";
+const SOCKET_PATH: &str = "/run/cb/ipc.sock";
 
 struct RawGuard(Termios);
 

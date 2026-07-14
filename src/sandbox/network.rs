@@ -2,7 +2,7 @@ use crate::error::AppError;
 use std::process::Command;
 use std::path::Path;
 
-const BRIDGE: &str = "mybox0";
+const BRIDGE: &str = "cb0";
 const GATEWAY: &str = "10.0.0.1";
 const CONTAINER_SUBNET: &str = "10.0.0.0/24";
 

@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::{container::ContainerInfo, error::AppError};
 
-const STORAGE_DIR: &str = "/var/lib/mybox/containers";
+const STORAGE_DIR: &str = "/var/lib/cb/containers";
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ContainerMetadata {

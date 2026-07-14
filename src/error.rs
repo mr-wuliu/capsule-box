@@ -8,7 +8,7 @@ pub enum AppError {
     #[error("JSON 错误: {0}")]
     Json(#[from] serde_json::Error),
 
-    #[error("连接 dameon 失败: {0}")]
+    #[error("连接 daemon 失败: {0}")]
     ConnectionFailed(std::io::Error),
 
     #[error("消息过大: {0} 字节")]

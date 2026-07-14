@@ -5,8 +5,8 @@ use nix::mount::{mount, umount2, MsFlags, MntFlags};
 use crate::error::AppError;
 
 
-const BASE_ROOTFS: &str = "/var/lib/mybox/rootfs";
-const CONTAINERS_DIR: &str = "/run/mybox/containers";
+const BASE_ROOTFS: &str = "/var/lib/cb/rootfs";
+const CONTAINERS_DIR: &str = "/run/cb/containers";
 
 #[allow(dead_code)]
 pub struct ContainerFs {
